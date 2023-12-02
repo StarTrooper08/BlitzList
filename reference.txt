@@ -1,0 +1,5 @@
+Flask:
+https://flask.palletsprojects.com/en/3.0.x/quickstart/#rendering-templates
+
+Bootstrap:
+https://getbootstrap.com/docs/5.3/extend/icons/
