@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -6,7 +6,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///task.db"
-#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class Task(db.Model):
@@ -20,16 +20,23 @@ class Task(db.Model):
          return f"{self.sno} - {self.title}"
 
 with app.app_context():
-    db.create_all()
+        db.create_all()
 
-@app.route("/")
+@app.route("/", methods = ['GET', 'POST'])
 def add():
-    task = Task(title="First task", desc="Learn Python")
-    db.session.add(task)
-    db.session.commit()
+    if request.method == 'POST':
+         title = request.form['title']
+         desc = request.form['desc']  
+         task = Task(title=title, desc=desc)
+         db.session.add(task)
+         db.session.commit()
+    allTask = Task.query.all()
+    #print(allTask)
+    return render_template('index.html', allTask = allTask)
 
-    return render_template('index.html')
-
+#@app.route("/tasklist")
+#def list():
+     
 
 if __name__ == "__main__":
     app.run(debug=True,port=3000)
