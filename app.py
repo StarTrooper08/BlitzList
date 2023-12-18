@@ -16,8 +16,8 @@ class Task(db.Model):
      creation_date = db.Column(db.DateTime, default=datetime.utcnow)
 
 
-     def __repr__(self) -> str:
-         return f"{self.sno} - {self.title}"
+     #def __repr__(self) -> str:
+         #return f"{self.sno} - {self.title}"
 
 with app.app_context():
         db.create_all()
