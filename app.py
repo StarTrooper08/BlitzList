@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -22,7 +22,8 @@ class Task(db.Model):
 with app.app_context():
         db.create_all()
 
-@app.route("/", methods = ['GET', 'POST'])
+#create task
+@app.route('/', methods = ['GET', 'POST'])
 def add():
     if request.method == 'POST':
          title = request.form['title']
@@ -34,8 +35,31 @@ def add():
     #print(allTask)
     return render_template('index.html', allTask = allTask)
 
-#@app.route("/tasklist")
-#def list():
+#delete task
+@app.route('/delete/<int:sno>')
+def delete(sno):
+     task_delete = Task.query.filter_by(sno=sno).first()
+     db.session.delete(task_delete)
+     db.session.commit()
+     return redirect("/")
+
+#update task
+@app.route('/update/<int:sno>', methods = ['GET','POST'])
+def update(sno):
+     if request.method == 'POST':
+         title = request.form['title']
+         desc = request.form['desc']  
+         task_update = Task.query.filter_by(sno=sno).first()
+         task_update.title = title
+         task_update.desc = desc
+         db.session.add(task_update)
+         db.session.commit()
+         return redirect('/')
+          
+     task_update = Task.query.filter_by(sno=sno).first()
+     return render_template('update.html',task_update=task_update)
+     
+
      
 
 if __name__ == "__main__":

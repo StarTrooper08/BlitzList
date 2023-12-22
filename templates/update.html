@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block body %}
+
+<!--Form for adding task-->
+<div class="container my-3">
+  <h3>Update Task</h3>
+  <form action="/update/{{task_update.sno}}" method="POST">
+    <div class="mb-3">
+      <label for="task" class="form-label">Task</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        value="{{task_update.title}}"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="desc" class="form-label">Description</label>
+      <input type="text" class="form-control" name="desc" id="desc" value="{{task_update.desc}}" />
+    </div>
+    <button type="submit" class="btn btn-dark">Save</button>
+  </form>
+</div>
+
+{% endblock body %}

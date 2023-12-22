@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="image/x-icon" sizes="16x16" rel="icon" href="../static/blitzlist.png">
+    <title>
+        BlitzList
+    </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"
+            ><img
+              src="data:image/png;base64,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"
+              alt="Logo"
+              height="55"
+            />
+          </a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-1 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active fs-1 fw-semibold"
+                  aria-current="page"
+                  href="/"
+                  >BlitzList</a
+                >
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-dark" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+  
+
+  
+
+    {% block body %}
+        
+    {% endblock body %}
+
+  </body>
+  </html>
