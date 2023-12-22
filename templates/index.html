@@ -17,7 +17,7 @@
           <button type="submit" class="btn btn-dark">Add Task</button>
         </form>
       </div>
-      
+
     <!--Table which displays task added-->
     <div class="container my-5">
       <h3>Task List</h3>
@@ -50,7 +50,7 @@
             <th scope="row">{{loop.index}}</th>
             <td>{{taskrow.title}}</td>
             <td>{{taskrow.desc}}</td>
-            <td>{{taskrow.creation_date.strftime('%Y-%m-%d %H:%M')}}</td>
+            <td>{{taskrow.creation_date.strftime('%M:%H %d-%m-%Y')}}</td>
             <td>
               <a href="/update/{{taskrow.sno}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Edit</a>
               <a href="/delete/{{taskrow.sno}}" type="button" class="btn btn-dark btn-sm mx-1"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAnklEQVR4nL3SMQrCMBTG8SxdeguFQvcewE51d9cj6AHag9iLtIIn6BnErbsXEP4lmEIH++Ut+uAbkrz3I4E498sC9kBlbU6BAzAAz5BXyLweQk/6DciAG3CPxPdka7fIgSKSXD2jJ16dAloDcFVAYwBqBZwMwFEBpQHYKWBrADYKSIC3GPZnySrgPsgogFEOB+ACPBbfd47fO0eBv9cEJ8zI7JzUTyQAAAAASUVORK5CYII="></a>
