@@ -6,14 +6,16 @@
       <div class="container my-3">
         <h3> Add Task </h3>
         <form action="/" method="POST">
-          <div class="mb-3">
-            <label for="task" class="form-label">Task</label>
-            <input type="text" class="form-control" name="title" id="title" required/>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="title" id="title" placeholder="Task">
+            <label for="floatingInput">Task</label>
           </div>
-          <div class="mb-3">
-            <label for="desc" class="form-label">Description</label>
-            <input type="text" class="form-control" name="desc" id="desc" />
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="desc" id="desc" placeholder="Description">
+            <label for="floatingPassword">Description</label>
           </div>
+          
           <button type="submit" class="btn btn-dark">Add Task</button>
         </form>
       </div>
